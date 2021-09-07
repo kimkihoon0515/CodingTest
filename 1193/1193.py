@@ -1,6 +1,6 @@
 x = int(input())
 
-cnt = 1
+cnt = 1 
 
 while x >cnt:
     x-=cnt
