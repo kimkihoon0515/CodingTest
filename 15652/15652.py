@@ -8,15 +8,14 @@ arr=[False] * n # 체크 여부
 
 result=[] # 결과물
 
-def dfs(depth,index,n,m): # index를 추가하여 중복되지 않게끔 반복문을 돌린다.
+def dfs(depth,index,n,m): 
     if depth == m: # 탈출 하는 조건
         print(' '.join(map(str,result))) # list 를 str 으로 합쳐서 출력한다. 
         return
-    for i in range(index,n): # 체크범위 설정
-        if not arr[i]: # 체크 안했다면
-            arr[i] = True # 중복을 제거
+    for i in range(index,n): # 체크범위 설정 
+        if not arr[i]: # 체크 안했다면            
             result.append(i+1) # 결과 배열에 숫자 입력
-            dfs(depth+1,i+1,n,m) # 재귀호출로 다시 탐색
+            dfs(depth+1,i,n,m) # 재귀호출로 다시 탐색
             arr[i] = False # 체크 완료
             result.pop() # 체크 내용 제거          
 dfs(0,0,n,m)
