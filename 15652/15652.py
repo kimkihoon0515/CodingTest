@@ -12,7 +12,7 @@ def dfs(depth,index,n,m):
     if depth == m: # 탈출 하는 조건
         print(' '.join(map(str,result))) # list 를 str 으로 합쳐서 출력한다. 
         return
-    for i in range(index,n): # 체크범위 설정
+    for i in range(index,n): # 체크범위 설정 
         if not arr[i]: # 체크 안했다면            
             result.append(i+1) # 결과 배열에 숫자 입력
             dfs(depth+1,i,n,m) # 재귀호출로 다시 탐색
