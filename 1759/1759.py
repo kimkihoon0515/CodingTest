@@ -3,7 +3,6 @@ l,c = map(int,input().split())
 word = sorted(list(map(str,input().split())))
 result =[]
 result.extend(list(map(''.join,combinations(map(str,word),l))))
-print(result)
 moum = ['a','e','o','u','i']
 
 for i in result:
@@ -14,5 +13,5 @@ for i in result:
             vows +=1
         else:
             coms +=1
-    if vows >=2 and coms >=1:
+    if vows >=1 and coms >=2:
         print(i)
