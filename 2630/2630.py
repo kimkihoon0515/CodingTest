@@ -16,7 +16,7 @@ def cut(x,y,n):
                 cut(x,y+n//2,n//2) # 2사분면
                 cut(x+n//2,y,n//2) # 3사분면
                 cut(x+n//2,y+n//2,n//2) # 4사분면
-                return
+                return 
     if check ==0: # 모든 색이 흰색
         white +=1
         return
