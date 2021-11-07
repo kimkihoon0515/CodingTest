@@ -25,7 +25,7 @@ for i in dp[1:]:
 
 for i in range(1, n+1):
 	for j in range(1, n+1):
-		if dp[i][j] == inf or i == j:
+		if dp[i][j] == inf or i == j: # 갈 수 없는 경로
 			print(0)
 		else:
 			print(len(graph[i][j]), *graph[i][j])
