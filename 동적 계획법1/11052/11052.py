@@ -10,7 +10,7 @@ dp[2] = max(2*dp[1],li[1])
 
 for i in range(3,n+1):
     dp[i] = li[i-1] # 자기 자신
-    for j in range(1,i-j):
+    for j in range(1,i//2 + 1):
         dp[i] = max(dp[i],dp[j]+dp[i-j])
 
 print(dp[n])
