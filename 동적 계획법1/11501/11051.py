@@ -1,18 +1,4 @@
-import sys
-
-n,k = map(int,sys.stdin.readline().split())
-
-dp = [[0] for _ in range(1001)]
-
-dp[1].append(1)
-
-for i in range(2,1001):
-    for j in range(1,i+1):
-        if j == 1:
-            dp[i].append(1)
-        elif j == i:
-            dp[i].append(1)
-        else:
-            dp[i].append(dp[i-1][j-1] + dp [i-1][j])
-
-print(dp[n+1][k+1] % 10007)
+import math
+n1, n2 = map(int, input().split())
+ans = math.factorial(n1) // math.factorial(n1-n2) // math.factorial(n2) 
+print(ans%10007)
