@@ -25,10 +25,10 @@ def bfs(x,y):
                     queue.append([nx,ny])
     return cnt
 
-result = []
+result = [] # 결과값을 저장하는 배열
 
 for i in range(n):
     for j in range(m):
         if li[i][j] =='L':
             result.append(bfs(i,j))
-print(max(result)-1)
+print(max(result)-1) # 결과값중 가장 큰 값 -1
