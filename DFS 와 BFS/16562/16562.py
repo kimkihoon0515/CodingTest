@@ -1,5 +1,7 @@
 import sys
 
+sys.setrecursionlimit(10**9) # recursion 에러 해결
+
 n,m,k = map(int, sys.stdin.readline().split())
 A = list(map(int, sys.stdin.readline().split())) # 가격
 
