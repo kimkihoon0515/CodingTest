@@ -16,5 +16,7 @@ def solution(number, k):
         stack.append(i) # i를 stack에 넣어준다. 
         if len(stack) == len(number) - k:
             break
+    if k!=0:
+        stack = stack[:-k]
     answer = ''.join(stack)
     return answer
