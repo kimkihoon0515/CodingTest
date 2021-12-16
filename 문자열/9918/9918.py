@@ -1,15 +1,20 @@
-import re,sys
+import sys
 
 n = int(sys.stdin.readline())
-s,e = sys.stdin.readline().strip().split('*') 
+pattern = sys.stdin.readline().rstrip().split('*')
 
-pattern = re.compile(s+'.*'+e+'+')
-
+left = len(pattern[0])
+right = len(pattern[-1])
 
 for _ in range(n):
-    string = sys.stdin.readline().strip()
-    a = pattern.search(string)
-    if a and a.group() == string:
+    s = sys.stdin.readline().strip()
+    l = s[:left]
+    s = s[left:]
+    r = s[len(s)-right :]
+    
+    if len(s) == 1:
+        print('NE')
+    elif l == pattern[0] and r == pattern[-1]:
         print('DA')
     else:
         print('NE')
