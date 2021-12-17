@@ -8,7 +8,7 @@ start = 0
 end = 0
 
 counter = [0 for i in range(max(li)+1)]
-print(counter)
+
 cnt = 0
 
 while end < n:
