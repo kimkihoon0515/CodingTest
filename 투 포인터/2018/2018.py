@@ -1,4 +1,3 @@
-from re import A
 import sys
 
 n = int(sys.stdin.readline())
