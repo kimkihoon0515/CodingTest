@@ -5,7 +5,7 @@ numbers = ['zero','one','two','three','four','five','six','seven','eight','nine'
 dic = dict()
 for i in range(10):
     dic[str(i)] = numbers[i]
-print(dic)
+
 
 li = []
 for i in range(m,n+1):
