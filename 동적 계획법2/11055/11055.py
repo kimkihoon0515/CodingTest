@@ -14,5 +14,4 @@ for i in range(1,n):
         dp[i] = a[i]
     else:
         dp[i] = a[i]+ max(ans) 
-print(dp)
 print(max(dp))
