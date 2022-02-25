@@ -15,4 +15,4 @@ for i in range(n+1):
     else:
         ans = fib[-1]+ fib[-2]
     fib.append(ans)
-print(fib)
+print(fib[-1])
