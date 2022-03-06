@@ -1,7 +1,7 @@
 import sys
  
 a = sys.stdin.readline().strip()
-b = sys.stdin.readlines().strip()
+b = sys.stdin.readline().strip()
  
 result = 0
 dp = [[0]*(len(b)+1) for _ in range(len(a)+1)]
