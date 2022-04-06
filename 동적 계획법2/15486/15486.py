@@ -10,7 +10,7 @@ for _ in range(n):
     t.append(a)
     p.append(b)
 
-print(t,p)
+
 
 dp = [0 for i in range(n+1)]
 
