@@ -1,0 +1,4 @@
+def solution(n, left, right):
+    answer = []
+    return [max(i%n, i//n)+1 for i in range(int(left), int(right)+1)]
+    
