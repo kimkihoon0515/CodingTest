@@ -1,0 +1,50 @@
+'''
+시간초과 O(n^2) 시간복잡도 대신 O(n)으로 풀어야함
+def solution(n, stations, w):
+    answer = 0
+    div = (w*2)+1
+    li = [0 for i in range(n)]
+    for i in stations:
+        for j in range(w+1):
+            start = i-1-j
+            end = i-1+j
+            if 0<=start<n:
+                li[start]=1
+            if 0<=end<n:
+                li[end]= 1
+    cnt = 0            
+    for i in range(n):
+        if li[i] == 0:
+            cnt +=1
+        if li[i] == 1:
+            if cnt >0 and cnt%div!=0:
+                answer += cnt//div + 1
+            elif cnt > 0 and cnt%div==0:
+                answer += cnt // div
+            cnt = 0
+    if cnt >0:
+        if cnt % div !=0:
+            answer += cnt//div+1
+        else:
+            answer+=cnt//div
+
+    return answer
+'''
+
+import math
+
+def solution(n, stations, w):
+    answer = 0
+    
+    li = []
+    
+    for i in range(1,len(stations)):
+        li.append((stations[i]-w-1)-(stations[i-1]+w))
+    
+    li.append(stations[0]-w-1)
+    li.append(n-(stations[-1]+w))
+    
+    for i in li:
+        if i >0:
+            answer += math.ceil(i/(2*w+1))    
+    return answer
