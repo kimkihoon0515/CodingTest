@@ -1,0 +1,42 @@
+def solution(n, k, cmd) :
+    info = {x: [x-1, x+1] for x in range(n)}
+    answer = ['O' for _ in range(n)]
+    deleted = []
+
+    for value in cmd :
+        if len(value) >= 2 :
+            value, count = value.split(" ")
+        if value == 'U' : 
+            for _ in range(int(count)) :
+                k = info[k][0]
+        elif value == 'D' : 
+            for _ in range(int(count)) :
+                k = info[k][1]
+        elif value == 'C' :
+            pre, next = info[k]
+            deleted.append((pre, next, k))
+            answer[k] = 'X'
+
+            if pre == -1 :
+                info[next][0] = pre
+                k = next
+            elif next == n :
+                info[pre][1] = next
+                k = pre
+            else :
+                info[pre][1] = next
+                info[next][0] = pre
+                k = next
+        elif value == 'Z' :
+            pre, next, now = deleted.pop()
+            answer[now] = 'O'
+
+            if pre == -1 :
+                info[next][0] = now
+            elif next == n :
+                info[pre][1] = now
+            else :
+                info[pre][1] = now
+                info[next][0] = now
+
+    return "".join(answer)
