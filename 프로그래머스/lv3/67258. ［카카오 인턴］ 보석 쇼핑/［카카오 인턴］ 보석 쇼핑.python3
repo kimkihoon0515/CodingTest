@@ -1,0 +1,19 @@
+from collections import Counter
+
+def solution(gems):    
+    answer = []
+    gem = set(gems)
+    dic = Counter()
+    left = 0
+    
+    for i in range(len(gems)):
+        dic[gems[i]] += 1
+        while len(dic) == len(gem):
+            dic[gems[left]] -= 1
+            if dic[gems[left]]==0:
+                del dic[gems[left]]
+            left += 1
+            answer.append([left,i+1])
+    answer = sorted(answer,key=lambda x:(x[1]-x[0],x[0]))
+    
+    return answer[0]
