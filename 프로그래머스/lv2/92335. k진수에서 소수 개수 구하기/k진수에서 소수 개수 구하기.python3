@@ -1,0 +1,35 @@
+def convert(num, base):
+    power = 0
+    tmp = ''
+    while num:
+        tmp = str(num%base) + tmp
+        num //= base
+    return tmp
+
+def is_prime(n):
+    if n == 1:
+        return False
+    for i in range(2,int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def solution(n, k):
+    answer = 0
+    result = convert(n,k)
+    print(result)
+    ans = []
+    s = ''
+    for i in result:
+        if i == '0':
+            if s:
+                ans.append(int(s))
+            s = ''
+        else:
+            s += i
+    if s:
+        ans.append(int(s))
+    for i in ans:
+        if is_prime(i):
+            answer+=1
+    return answer
