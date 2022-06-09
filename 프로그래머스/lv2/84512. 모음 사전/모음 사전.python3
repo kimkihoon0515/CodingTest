@@ -1,0 +1,14 @@
+from itertools import product
+
+def solution(word):
+    answer = 0
+    words = ['A','E','I','O','U']
+    ans = []
+    for index in range(1,6):
+        for i in product(words,repeat=index):
+            ans.append(''.join(i))
+    ans = sorted(ans)
+    for index,value in enumerate(ans):
+        if value == word:
+            answer = index+1
+    return answer
