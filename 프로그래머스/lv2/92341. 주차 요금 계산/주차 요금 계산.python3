@@ -1,0 +1,31 @@
+import math
+def solution(fees, records):
+    answer = []
+    dic = {}
+    records = sorted(records,key=lambda x:x.split()[1])
+    for i in records:
+        time,num,status = i.split()
+        h,m = time.split(':')
+        if num in dic:
+            dic[num].append([60*int(h)+int(m),status])
+        else:
+            dic[num] = [[60*int(h)+int(m),status]]
+    for k,v in dic.items():
+        queue = []
+        time = 0
+        for i in v:
+            if i[1] == 'IN':
+                queue.append(i[0])
+            else:
+                time += i[0]-queue[-1]
+                queue.pop()
+        if queue:
+            time += 23*60+59 - queue[-1]
+        answer.append(time)
+    print(answer)
+    for i in range(len(answer)):
+        if answer[i]>=fees[0]:
+            answer[i] = int(math.ceil((answer[i] - fees[0])/fees[2]))*fees[3] + fees[1]
+        else:
+            answer[i] = fees[1]
+    return answer
