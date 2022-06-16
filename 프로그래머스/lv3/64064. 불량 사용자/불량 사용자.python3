@@ -1,0 +1,21 @@
+from itertools import permutations
+import re
+
+def check(user_id,banned_id):
+    for i in range(len(user_id)):
+        if len(user_id[i])!=len(banned_id[i]):
+            return False
+        if not re.fullmatch(banned_id[i],user_id[i]):
+            return False
+    return True
+
+def solution(user_id, banned_id):
+    answer = 0
+    for i in range(len(banned_id)):
+        banned_id[i] = banned_id[i].replace('*','.')
+    bad_user = []
+    for i in permutations(user_id,len(banned_id)):
+        if check(i,banned_id) and set(i) not in bad_user:
+            bad_user.append(set(i))
+    answer = len(bad_user)
+    return answer
