@@ -1,0 +1,11 @@
+def solution(n, s):
+    answer = []
+    if n>s:
+        return [-1]
+    else:
+        while n>0:
+            a = s // n
+            answer.append(a)
+            s -= a
+            n -= 1
+    return answer
