@@ -1,0 +1,10 @@
+def solution(n):
+    answer = 0
+    n = str(n)
+    li = list(map(str,n))
+    li = sorted(li,reverse=True)
+    a = ''
+    for i in li:
+        a+=i
+    answer = int(a)
+    return answer
