@@ -1,6 +1,10 @@
 def solution(n):
     answer = 0
     dp = [1,1]
-    for i in range(2,n+1):
-        dp.append(dp[i-2]+dp[i-1])
-    return dp[n]%1234567
+    if n == 0:
+        return 0
+    for _ in range(n-1):
+        tmp = dp[1]
+        dp[1] = dp[0]+dp[1]
+        dp[0] = tmp
+    return dp[1]%1234567
