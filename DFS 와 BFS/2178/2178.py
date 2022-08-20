@@ -1,33 +1,30 @@
 import sys
+from collections import deque
 
-n,m = map(int,sys.stdin.readline().split())
+n,m = map(int,sys.stdin.readline().split()) 
 
-li = []
-"""
-101111
-101010
-101011
-111011
-"""
-for _ in range(n):
-    li.append(list(map(int,input())))
+graph = [list(sys.stdin.readline().strip()) for _ in range(n)]
 
-dx = [0,0,-1,1]
-dy = [1,-1,0,0]
+visit = [[0 for _ in range(m)] for _ in range(n)]
 
-queue = [[0,0]]
-while(queue): # bfs 방식으로 탐색하는 법
-    a,b = queue[0][0],queue[0][1]
-    del queue[0]
-    for i in range(4):
-        nx = a + dx[i]
-        ny = b + dy[i]
-        if 0 <= nx < n and 0 <= ny < m and li[nx][ny] == 1:
-            queue.append([nx,ny])
-            li[nx][ny] = li[a][b] + 1 # 1을 발견할때마다 하나씩 늘어나서 마지막까지 탐색한다. 
+dx = [-1,1,0,0]
+dy = [0,0,-1,1]
 
-print(li[n-1][m-1])
+def bfs(a,b):
+    queue = deque()
+    queue.append([a,b])
+    visit[a][b] = 1
 
+    while queue:
+        x,y = queue.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
 
-
-
+            if 0<=nx<n and 0<=ny<m and visit[nx][ny] == 0:
+                if graph[nx][ny] == '1':
+                    visit[nx][ny] = visit[x][y]+1
+                    queue.append([nx,ny])
+    
+bfs(0,0)
+print(visit[-1][-1])
