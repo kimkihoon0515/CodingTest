@@ -9,4 +9,5 @@ def solution(number):
         if sum(i) == 0:
             answer+=1
 
+
     return answer
