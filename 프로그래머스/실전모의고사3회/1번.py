@@ -11,4 +11,5 @@ def solution(a, b, n):
         answer += rest
         n = rest+new
 
+
     return answer
