@@ -7,9 +7,11 @@ def solution(order):
     sub_belt = []
 
     for i in range(len(order)):
+        
         if sub_belt and sub_belt[-1] == order[i]:
             sub_belt.pop()
             answer+=1
+
         else:
             if not main_belt:
                 break

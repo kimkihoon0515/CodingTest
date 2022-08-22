@@ -13,6 +13,7 @@ def solution(X, Y):
            minimum = min(value,y[key])
            for i in range(minimum):
                ans.append(key)
+               
     if not ans:
         return '-1'
     else:

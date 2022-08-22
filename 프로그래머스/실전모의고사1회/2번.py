@@ -11,6 +11,7 @@ def solution(want, number, discount):
     for start in range(len(discount)):
         flag = True
         end = start + 10
+        
         if end>len(discount):
             end = len(discount)
         hash = Counter(discount[start:end])
